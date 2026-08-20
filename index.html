@@ -8,9 +8,9 @@
         /* 基礎設定與色彩變數 */
         :root {
             --brand-green: #29A66C; 
-            --text-main: #333333;
-            --text-light: #888888;
-            --bg-body: #F9F9F9;
+            --text-dark-grey: #333333; /* 標題深灰 */
+            --text-light-grey: #888888; /* 副標題淺灰 */
+            --bg-body: #FFFFFF; /* 全白背景 */
             --footer-bg: #5D5D5D; 
             --footer-text: #B3B3B3;
         }
@@ -18,44 +18,42 @@
         body {
             font-family: 'PingFang TC', 'Heiti TC', 'Noto Sans TC', sans-serif;
             background-color: var(--bg-body);
-            color: var(--text-main);
+            color: var(--text-dark-grey);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
         
-        /* 頁首設計 - 改為灰色背景 */
-        header {
-            background-color: #F0F2F5; /* 質感淺灰色 */
+        /* 頂部導覽列 (放 Logo 的地方) */
+        .top-navbar {
+            padding: 15px 30px;
+            border-bottom: 1px solid #EBEBEB;
+            background-color: #FFFFFF;
+        }
+        .top-navbar img {
+            height: 35px;
+        }
+
+        /* 內容標題區塊 (對齊您的截圖) */
+        .content-header {
             text-align: center;
-            padding: 50px 20px 40px 20px;
-            border-bottom: 1px solid #E4E6E8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 60px 20px 40px 20px;
         }
-
-        /* Logo 樣式設定 */
-        .header-logo {
-            height: 45px; /* 控制 Logo 高度 */
-            margin-bottom: 25px;
-        }
-
-        header h1 {
+        .content-header h1 {
             margin: 0;
             font-size: 32px;
-            font-weight: bold;
-            color: var(--text-main);
+            font-weight: 600; /* 微調字重，看起來更俐落 */
+            color: var(--text-dark-grey); /* 套入深灰色 */
             letter-spacing: 1px;
         }
-        header p {
+        .content-header p {
             margin-top: 15px;
             font-size: 16px;
-            color: var(--text-light);
+            color: var(--text-light-grey); /* 套入淺灰色 */
         }
         .header-line {
-            width: 50px;
-            height: 3px;
+            width: 40px;
+            height: 2px;
             background-color: var(--brand-green);
             margin: 20px auto 0 auto;
         }
@@ -63,7 +61,7 @@
         /* 內容容器 */
         .container {
             max-width: 1000px;
-            margin: 40px auto 60px auto;
+            margin: 20px auto 60px auto;
             padding: 0 20px;
         }
 
@@ -96,7 +94,7 @@
             align-items: center;
             font-size: 20px;
             font-weight: bold;
-            color: var(--text-main);
+            color: var(--text-dark-grey);
             margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px dashed #EBEBEB;
@@ -181,7 +179,7 @@
             margin-top: 50px;
         }
 
-        /* 響應式設計：手機版自動變回一排一個 */
+        /* 響應式設計 */
         @media (max-width: 768px) {
             .steps-grid {
                 grid-template-columns: 1fr;
@@ -191,14 +189,17 @@
 </head>
 <body>
 
-    <header>
-        <!-- 插入 100室內設計 Logo (這裡使用他們公開網站的圖片資源) -->
-        <img src="https://image.100.com.tw/v3/assets/img/logo.svg" alt="100室內設計" class="header-logo" onerror="this.style.display='none'">
-        
+    <!-- 獨立的頂部導覽列 放 Logo -->
+    <div class="top-navbar">
+        <img src="https://image.100.com.tw/v3/assets/img/logo.svg" alt="100室內設計" onerror="this.style.display='none'">
+    </div>
+
+    <!-- 內容標題區塊 (完全對齊您的截圖) -->
+    <div class="content-header">
         <h1>廣告合作與執行流程</h1>
         <p>為設計公司打造的高效對接指南</p>
         <div class="header-line"></div>
-    </header>
+    </div>
 
     <div class="container">
         
