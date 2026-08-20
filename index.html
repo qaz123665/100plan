@@ -3,189 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100室內設計 | 廣告合作流程</title>
+    <title>100室內設計 | 廣告合作流程指南</title>
     <style>
-        /* 基礎設定 */
+        /* 基礎設定與色彩變數 */
+        :root {
+            --brand-green: #29A66C; 
+            --text-main: #333333;
+            --text-light: #888888;
+            --bg-body: #F9F9F9;
+            --footer-bg: #5D5D5D; 
+            --footer-text: #B3B3B3;
+        }
+
         body {
             font-family: 'PingFang TC', 'Heiti TC', 'Noto Sans TC', sans-serif;
-            background-color: #F8F9FA;
-            color: #333333;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
-        /* 頁首設計 (100風格紅底白字) */
+        
+        /* 頁首設計 */
         header {
-            background-color: #E63946; /* 100室內設計近似品牌紅 */
-            color: white;
+            background-color: #FFFFFF;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
+            border-bottom: 1px solid #EBEBEB;
         }
         header h1 {
             margin: 0;
             font-size: 32px;
             font-weight: bold;
-            letter-spacing: 2px;
+            color: var(--text-main);
+            letter-spacing: 1px;
         }
         header p {
             margin-top: 15px;
             font-size: 16px;
-            opacity: 0.9;
+            color: var(--text-light);
         }
-        /* 內容容器 */
+        .header-line {
+            width: 50px;
+            height: 3px;
+            background-color: var(--brand-green);
+            margin: 20px auto 0 auto;
+        }
+
+        /* 內容容器 - 加寬以容納兩排 */
         .container {
-            max-width: 800px;
-            margin: -30px auto 50px auto;
+            max-width: 1000px;
+            margin: 40px auto 60px auto;
             padding: 0 20px;
         }
+
+        /* 網格佈局：一排兩個 */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px; /* 卡片之間的間距 */
+        }
+
         /* 步驟卡片 */
         .step-card {
-            background: white;
-            border-radius: 10px;
+            background: #FFFFFF;
+            border-radius: 8px;
             padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid #E63946;
-            transition: transform 0.2s ease;
+            border: 1px solid #EBEBEB;
+            border-left: 5px solid var(--brand-green);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column; /* 讓內容自動撐開，左右兩張卡片等高 */
         }
         .step-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
         }
+
+        /* 步驟標題 */
         .step-title {
             display: flex;
             align-items: center;
             font-size: 20px;
             font-weight: bold;
-            color: #E63946;
+            color: var(--text-main);
             margin-bottom: 15px;
-            border-bottom: 1px solid #EEEEEE;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #EBEBEB;
         }
+        
+        /* 步驟數字 */
         .step-number {
-            background-color: #E63946;
+            background-color: var(--brand-green);
             color: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            border-radius: 4px; 
+            width: 28px;
+            height: 28px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            font-size: 16px;
+            font-size: 15px;
             margin-right: 15px;
+            font-weight: bold;
         }
+
+        /* 內容列表 */
         .step-content ul {
             padding-left: 20px;
             margin: 0;
+            flex-grow: 1;
         }
         .step-content li {
             margin-bottom: 12px;
             font-size: 15px;
-            color: #555;
+            color: #555555;
         }
         .highlight {
-            color: #0066CC;
+            color: #007BFF;
             font-weight: bold;
         }
+
+        /* 提示區塊 */
         .alert-box {
-            background-color: #FFF3F3;
-            border: 1px dashed #E63946;
+            background-color: #F4FBF7; 
+            border: 1px solid #C3E6D3;
             padding: 15px;
             border-radius: 6px;
             margin-top: 15px;
         }
         .alert-box strong {
-            color: #E63946;
+            color: var(--brand-green);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 15px;
         }
-        /* 按鈕設計 */
+
+        /* 行動呼籲區塊 */
         .cta-section {
             text-align: center;
             margin: 50px 0;
+            grid-column: 1 / -1; /* 讓按鈕區塊橫跨整排 */
         }
+        
+        /* 按鈕設計 */
         .btn {
             display: inline-block;
-            background-color: #E63946;
+            background-color: var(--brand-green);
             color: white;
             text-decoration: none;
-            padding: 16px 40px;
+            padding: 15px 40px;
             font-size: 18px;
-            font-weight: bold;
+            font-weight: normal;
             border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
             transition: background 0.3s ease;
         }
         .btn:hover {
-            background-color: #D62828;
+            background-color: #218c5a;
+        }
+
+        /* 模擬 100室內設計 頁尾 */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+
+        /* 響應式設計：手機版自動變回一排一個 */
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>100室內設計 | 廣告合作流程指南</h1>
-        <p>為設計公司打造的高效對接流程，4 步驟輕鬆掌握專案進度</p>
+        <h1>廣告合作與執行流程</h1>
+        <p>為設計公司打造的高效對接指南</p>
+        <div class="header-line"></div>
     </header>
 
     <div class="container">
         
-        <!-- Step 1 -->
-        <div class="step-card">
-            <div class="step-title"><span class="step-number">1</span> 簽約與排期確認</div>
-            <div class="step-content">
-                <ul>
-                    <li><strong>【業務】</strong>與設計公司完成合約簽署。</li>
-                    <li><strong>【業務】</strong>與客戶確認全年排期表（請特別留意參考排期表內標註為 <span class="highlight">藍色部分</span> 的內容）。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="step-card">
-            <div class="step-title"><span class="step-number">2</span> 建立專屬 LINE 溝通群組</div>
-            <div class="step-content">
-                <ul>
-                    <li>確認完成排期表後，由<strong>【業務】</strong>創建專案專屬 LINE 群組。</li>
-                    <li>請將 LINE 帳號：<strong>100客服Rachel</strong>、<strong>啦啦</strong> 加入群組中。</li>
-                    <li><em>備註：收到簽約後，站台會安排對接的編輯，該名編輯將由「啦啦」協助加入群組（每個設計公司對接的編輯皆不相同）。</em></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="step-card">
-            <div class="step-title"><span class="step-number">3</span> 廣告執行與素材準備</div>
-            <div class="step-content">
-                <ul>
-                    <li><strong>系統導入：</strong> 站台將廣告版位排期表導入 100 後台系統，導入後<strong>【業務】</strong>可隨時登入後台查看確認。</li>
-                    <li><strong>內容製作：</strong> 編輯將協助製作廣告內容，製作完成後皆會在 LINE 群組內同步資訊。</li>
-                </ul>
-                <div class="alert-box">
-                    <strong>⚠️ 素材提供提醒</strong>
-                    部分廣告版位 banner 需由<strong>【業務】</strong>提前提供素材與文案，站台才能安排上架。請留意以下 4 個指定版位：<br>
-                    1. 首頁焦點大圖 | 2. 開機廣告 | 3. APP首頁頂部橫幅 | 4. 搜尋頁輪播廣告
+        <!-- 將 4 個步驟包裝在 steps-grid 網格容器中 -->
+        <div class="steps-grid">
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-title"><span class="step-number">1</span> 簽約與排期確認</div>
+                <div class="step-content">
+                    <ul>
+                        <li><strong>【業務】</strong>與設計公司完成合約簽署。</li>
+                        <li><strong>【業務】</strong>與客戶確認全年排期表（請特別留意參考排期表內標註為 <span class="highlight">藍色部分</span> 的內容）。</li>
+                    </ul>
                 </div>
             </div>
-        </div>
 
-        <!-- Step 4 -->
-        <div class="step-card">
-            <div class="step-title"><span class="step-number">4</span> 上架確認與進度追蹤</div>
-            <div class="step-content">
-                <ul>
-                    <li>廣告上架後，客戶即可根據排期表查看上線內容。</li>
-                    <li><strong>【業務】</strong>需持續關注「需要製作素材」的版位安排，同時把控內容製作進度。</li>
-                    <li>每月編輯會定期提醒進度，其中<strong>「開箱文撰寫」</strong>與<strong>「短影音拍攝」</strong>需重點把控進度以利專案順利推行。</li>
-                </ul>
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-title"><span class="step-number">2</span> 建立 LINE 群組</div>
+                <div class="step-content">
+                    <ul>
+                        <li>確認完成排期表後，由<strong>【業務】</strong>創建專案專屬 LINE 群組。</li>
+                        <li>請將 LINE 帳號：<strong>100客服Rachel</strong>、<strong>啦啦</strong> 加入群組中。</li>
+                        <li><em>備註：收到簽約後，站台會安排對接的編輯，該名編輯將由「啦啦」協助加入群組（每個設計公司對接的編輯皆不相同）。</em></li>
+                    </ul>
+                </div>
             </div>
-        </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-title"><span class="step-number">3</span> 廣告執行與素材準備</div>
+                <div class="step-content">
+                    <ul>
+                        <li><strong>系統導入：</strong> 站台將廣告版位排期表導入 100 後台系統，導入後<strong>【業務】</strong>可隨時登入後台查看確認。</li>
+                        <li><strong>內容製作：</strong> 編輯將協助製作廣告內容，製作完成後皆會在 LINE 群組內同步資訊。</li>
+                    </ul>
+                    <div class="alert-box">
+                        <strong>⚠️ 業務素材提供提醒</strong>
+                        部分廣告版位 banner 需提前提供素材與文案，站台才能安排上架。請留意以下版位：<br>
+                        首頁焦點大圖 | 開機廣告 | APP首頁頂部橫幅 | 搜尋頁輪播廣告
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-title"><span class="step-number">4</span> 上架確認與進度追蹤</div>
+                <div class="step-content">
+                    <ul>
+                        <li>廣告上架後，客戶即可根據排期表查看上線內容。</li>
+                        <li><strong>【業務】</strong>需持續關注「需要製作素材」的版位安排，同時把控內容製作進度。</li>
+                        <li>每月編輯會定期提醒進度，其中<strong>「開箱文撰寫」</strong>與<strong>「短影音拍攝」</strong>需重點把控進度以利專案順利推行。</li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- end of steps-grid -->
 
         <!-- Call to Action -->
         <div class="cta-section">
-            <a href="https://docs.google.com/spreadsheets/d/1VPzDdaRqB0Rnj8cmfl5A8nXJVRd_6pzuGTZ-ZzcrsFs/edit?gid=297807671#gid=297807671" target="_blank" class="btn">如需查看更多請點擊</a>
+            <a href="https://docs.google.com/spreadsheets/d/1VPzDdaRqB0Rnj8cmfl5A8nXJVRd_6pzuGTZ-ZzcrsFs/edit?gid=297807671#gid=297807671" target="_blank" class="btn">查看完整排期表</a>
         </div>
 
     </div>
+
+    <!-- 模擬頁尾 -->
+    <footer>
+        <p>© 100室內設計 廣告合作專區</p>
+    </footer>
 
 </body>
 </html>
