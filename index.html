@@ -24,13 +24,23 @@
             line-height: 1.6;
         }
         
-        /* 頁首設計 */
+        /* 頁首設計 - 改為灰色背景 */
         header {
-            background-color: #FFFFFF;
+            background-color: #F0F2F5; /* 質感淺灰色 */
             text-align: center;
-            padding: 50px 20px;
-            border-bottom: 1px solid #EBEBEB;
+            padding: 50px 20px 40px 20px;
+            border-bottom: 1px solid #E4E6E8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        /* Logo 樣式設定 */
+        .header-logo {
+            height: 45px; /* 控制 Logo 高度 */
+            margin-bottom: 25px;
+        }
+
         header h1 {
             margin: 0;
             font-size: 32px;
@@ -50,7 +60,7 @@
             margin: 20px auto 0 auto;
         }
 
-        /* 內容容器 - 加寬以容納兩排 */
+        /* 內容容器 */
         .container {
             max-width: 1000px;
             margin: 40px auto 60px auto;
@@ -61,7 +71,7 @@
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px; /* 卡片之間的間距 */
+            gap: 25px; 
         }
 
         /* 步驟卡片 */
@@ -73,7 +83,7 @@
             border-left: 5px solid var(--brand-green);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
-            flex-direction: column; /* 讓內容自動撐開，左右兩張卡片等高 */
+            flex-direction: column; 
         }
         .step-card:hover {
             transform: translateY(-2px);
@@ -142,7 +152,7 @@
         .cta-section {
             text-align: center;
             margin: 50px 0;
-            grid-column: 1 / -1; /* 讓按鈕區塊橫跨整排 */
+            grid-column: 1 / -1; 
         }
         
         /* 按鈕設計 */
@@ -161,7 +171,7 @@
             background-color: #218c5a;
         }
 
-        /* 模擬 100室內設計 頁尾 */
+        /* 模擬頁尾 */
         footer {
             background-color: var(--footer-bg);
             color: var(--footer-text);
@@ -182,6 +192,9 @@
 <body>
 
     <header>
+        <!-- 插入 100室內設計 Logo (這裡使用他們公開網站的圖片資源) -->
+        <img src="https://image.100.com.tw/v3/assets/img/logo.svg" alt="100室內設計" class="header-logo" onerror="this.style.display='none'">
+        
         <h1>廣告合作與執行流程</h1>
         <p>為設計公司打造的高效對接指南</p>
         <div class="header-line"></div>
@@ -189,7 +202,6 @@
 
     <div class="container">
         
-        <!-- 將 4 個步驟包裝在 steps-grid 網格容器中 -->
         <div class="steps-grid">
             <!-- Step 1 -->
             <div class="step-card">
@@ -241,16 +253,14 @@
                     </ul>
                 </div>
             </div>
-        </div> <!-- end of steps-grid -->
+        </div> 
 
-        <!-- Call to Action -->
         <div class="cta-section">
             <a href="https://docs.google.com/spreadsheets/d/1VPzDdaRqB0Rnj8cmfl5A8nXJVRd_6pzuGTZ-ZzcrsFs/edit?gid=297807671#gid=297807671" target="_blank" class="btn">查看完整排期表</a>
         </div>
 
     </div>
 
-    <!-- 模擬頁尾 -->
     <footer>
         <p>© 100室內設計 廣告合作專區</p>
     </footer>
